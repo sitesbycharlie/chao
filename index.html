@@ -186,9 +186,30 @@ html.lenis,html.lenis body{height:auto}
 .book .small a{color:var(--gold-2);text-decoration:none;border-bottom:1px solid rgba(240,215,154,.4);font-weight:600}
 .book .small a:hover{border-color:var(--gold-2)}
 
+
+/* ---------- find us ---------- */
+.find{background:var(--cream);padding:clamp(56px,7vw,96px) clamp(18px,5vw,72px)}
+.find-grid{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,4vw,56px);align-items:center}
+.find h2{margin:0 0 20px;font-family:var(--serif);font-weight:340;font-variation-settings:"SOFT" 100,"opsz" 144;font-size:clamp(32px,3.4vw,50px);line-height:1;letter-spacing:-.025em;color:var(--brown-deep);text-wrap:balance}
+.find h2 em{font-style:italic;font-weight:300;color:var(--brown)}
+.find .addr{margin:0 0 18px;font-size:15.5px;line-height:1.7;color:var(--ink)}
+.find .hours{margin:0 0 24px;display:grid;gap:8px;font-size:14.5px}
+.find .hours div{display:flex;justify-content:space-between;gap:16px;max-width:360px;padding-bottom:10px;border-bottom:2px dotted rgba(139,74,26,.28)}
+.find .hours dt{font-weight:600;color:var(--ink)}.find .hours dd{margin:0;color:var(--brown);font-family:var(--serif);font-weight:500;font-size:17px}
+.find-act{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.btn-dark{--bg:var(--black);--fg:var(--gold-2);box-shadow:0 12px 30px -14px rgba(19,16,13,.6)}
+.find .tel{font-family:var(--serif);font-size:20px;color:var(--brown);text-decoration:none;border-bottom:1px solid rgba(139,74,26,.35)}
+.find .tel:hover{border-color:var(--brown)}
+.map{position:relative;height:clamp(240px,24vw,320px);border-radius:20px;overflow:hidden;background:var(--cream-2);border:1px solid rgba(211,174,99,.6);box-shadow:0 24px 50px -32px rgba(74,40,16,.5)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:sepia(.32) saturate(.85) hue-rotate(-8deg) contrast(.96) brightness(1.02)}
+.map-fallback{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;color:var(--brown)}
+.map-fallback svg{width:90px;color:var(--gold)}
+.map-fallback span{font-size:12px;letter-spacing:.22em;text-transform:uppercase;font-weight:700}
+@media (max-width:860px){.find-grid{grid-template-columns:1fr}.map{height:240px;border-radius:18px}}
+
 /* ---------- footer ---------- */
 .foot{background:var(--cream-2);padding:clamp(64px,8vw,110px) clamp(20px,5vw,72px) 36px}
-.foot-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:40px}
+.foot-grid{max-width:1280px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
 .foot img{width:190px;height:auto}
 .foot .tag{margin:16px 0 0;font-size:11px;letter-spacing:.26em;font-weight:700;color:var(--brown);text-transform:uppercase}
 .foot h3{margin:0 0 14px;font-size:12px;letter-spacing:.24em;text-transform:uppercase;font-weight:700;color:var(--teal)}
@@ -238,8 +259,7 @@ html.lenis,html.lenis body{height:auto}
   .line .act{display:none}
   .rail,.cue span{display:none}
   .loader{bottom:auto;top:76px;right:16px}
-  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
-  .foot-grid>div:first-child{grid-column:1/-1}
+  .foot-grid{flex-direction:column;align-items:flex-start;gap:28px}
   .book .small{font-size:13.5px}
   body{padding-bottom:0}
   .foot .base{padding-bottom:80px}
@@ -447,13 +467,29 @@ html.lenis,html.lenis body{height:auto}
   <div class="act reveal" style="--i:3"><a class="btn btn-gold" href="https://thecrazybeauty.com/salon-detail/ch%C3%A0o-donegal/1073" target="_blank" rel="noopener">Book Now<svg aria-hidden="true"><use href="#arrow"/></svg></a></div>
   <p class="small reveal" style="--i:4">Or call <a href="tel:+353857166666">085 716 6666</a> · Ground floor, The Diamond, Donegal Town, F94 D9WF · Walk-ins and appointments welcome</p>
 </section>
+
+<section class="find grain" id="find" aria-labelledby="find-title">
+  <div class="find-grid">
+    <div class="find-info reveal">
+      <h2 id="find-title">Find us on <em>The Diamond.</em></h2>
+      <p class="addr">Ground floor, The Diamond<br>Donegal Town, Co. Donegal<br>Eircode F94 D9WF</p>
+      <dl class="hours"><div><dt>Tuesday to Saturday</dt><dd>9:15am – 7pm</dd></div><div><dt>Sunday &amp; Monday</dt><dd>10am – 6pm</dd></div></dl>
+      <div class="find-act">
+        <a class="btn btn-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=Ch%C3%A0o%20Donegal%2C%20The%20Diamond%2C%20Donegal%20Town%2C%20Co.%20Donegal%20F94%20D9WF" target="_blank" rel="noopener">Get directions<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+        <a class="tel" href="tel:+353857166666">085 716 6666</a>
+      </div>
+    </div>
+    <div class="map reveal" style="--i:1">
+      <div class="map-fallback" aria-hidden="true"><svg viewBox="0 0 120 62"><use href="#lotus"/></svg><span>The Diamond, Donegal Town</span></div>
+      <iframe title="Map showing Chào Donegal on The Diamond, Donegal Town" src="https://maps.google.com/maps?q=Ch%C3%A0o%20Donegal%2C%20The%20Diamond%2C%20Donegal%20Town%2C%20Co.%20Donegal%20F94%20D9WF&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
 </main>
 
 <footer class="foot grain">
   <div class="foot-grid">
     <div><img src="logo-brown.webp" alt="Chào Donegal" width="190" height="91" loading="lazy"><p class="tag">Nail Spa · Beauty · Wellness</p></div>
-    <div><h3>Visit</h3><p>Ground floor, The Diamond<br>Donegal Town, Co. Donegal<br>Eircode F94 D9WF</p></div>
-    <div><h3>Hours</h3><dl><div><dt>Tuesday to Saturday</dt><dd>9:15am – 7pm</dd></div><div><dt>Sunday &amp; Monday</dt><dd>10am – 6pm</dd></div></dl></div>
     <div><h3>Say hello</h3><p><a href="tel:+353857166666">085 716 6666</a><br>Instagram &amp; Facebook<br><a href="https://www.instagram.com/chaodonegal/" target="_blank" rel="noopener">@chaodonegal</a></p></div>
   </div>
   <div class="base"><span>© 2026 Chào Donegal · The Diamond, Donegal Town</span><a class="credit" href="https://sitesbycharlie.ie" target="_blank" rel="noopener">Site by Charlie</a></div>
