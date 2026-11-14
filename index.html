@@ -75,10 +75,15 @@ html.lenis,html.lenis body{height:auto}
 .site-header.solid .brand .logo-c{opacity:0}
 .site-header.solid .brand .logo-b{opacity:1}
 .site-header .btn{position:relative}
+.head-nav{position:relative;display:flex;align-items:center;gap:22px}
+.nav-link{display:inline-flex;align-items:center;min-height:44px;padding:0 4px;color:#FBF3E3;text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid rgba(251,243,227,.45);transition:color .4s,border-color .4s}
+.nav-link:hover{border-color:currentColor}
+.site-header.solid .nav-link{color:var(--brown);border-color:rgba(139,74,26,.4)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;background:#2A1A0F}
 .film .hero{height:560vh}
+@media (max-width:760px){.film .hero{height:400vh}}
 .no-film .hero{height:100svh;min-height:560px}
 .hero-stick{position:sticky;top:0;height:100vh;height:100dvh;min-height:520px;overflow:hidden;background:#2A1A0F}
 .no-film .hero-stick{position:relative}
@@ -237,6 +242,8 @@ html.lenis,html.lenis body{height:auto}
   .site-header{height:64px}
   .brand,.brand img{height:38px}.brand{width:80px}
   .site-header .btn{display:none}
+  .nav-link{min-height:40px;padding:0 14px;border:1px solid rgba(251,243,227,.55);border-radius:999px;font-size:11px;letter-spacing:.18em;background:rgba(28,16,8,.18);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+  .site-header.solid .nav-link{border-color:rgba(139,74,26,.35);background:transparent}
   .sticky-book{display:flex}
   .menu-head{grid-template-columns:1fr}
   .menu-grid,.col,.col.c3{display:flex;flex-direction:column;gap:14px}
@@ -321,7 +328,8 @@ html.lenis,html.lenis body{height:auto}
     <img class="logo-c" src="logo-cream.webp" alt="" width="97" height="46">
     <img class="logo-b" src="logo-brown.webp" alt="" width="97" height="46">
   </a>
-  <a class="btn btn-gold btn-sm" href="https://thecrazybeauty.com/salon-detail/ch%C3%A0o-donegal/1073" target="_blank" rel="noopener">Book Now<svg aria-hidden="true"><use href="#arrow"/></svg></a>
+  <nav class="head-nav" aria-label="Main"><a class="nav-link" href="#menu">See prices</a>
+  <a class="btn btn-gold btn-sm" href="https://thecrazybeauty.com/salon-detail/ch%C3%A0o-donegal/1073" target="_blank" rel="noopener">Book Now<svg aria-hidden="true"><use href="#arrow"/></svg></a></nav>
 </header>
 
 <main>
@@ -524,7 +532,8 @@ else rv.forEach(function(el){el.classList.add('in');});
 /* ---- header + sticky button state ---- */
 var heroOver=false, bookIn=false, finalLive=false, early=root.classList.contains('film');
 function syncSticky(){sticky.classList.toggle('hide',bookIn||early);}
-function onScrollUI(){var r=hero.getBoundingClientRect();var solid=r.bottom<=80;header.classList.toggle('solid',solid);}
+var menuEl=document.getElementById('menu');
+function onScrollUI(){var solid=menuEl.getBoundingClientRect().top<=header.offsetHeight+2;header.classList.toggle('solid',solid);}
 if('IntersectionObserver' in window){new IntersectionObserver(function(es){bookIn=es[0].isIntersecting;syncSticky();},{threshold:.15}).observe(book);}
 window.addEventListener('scroll',onScrollUI,{passive:true});onScrollUI();syncSticky();
 
